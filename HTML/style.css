@@ -2,7 +2,10 @@
 /* selector */
 body{margin:40px
     auto;max-width:650px;line-height:1.6;font-size:18px;color:#444;padding:0
-    10px}
+    10px;
+    background-image: url("AlmostFullMoon.jpg");
+}"
+
     h1{
         float: left;
         margin: 0 1.5%;
@@ -15,10 +18,34 @@ body{margin:40px
         width: 65%;
     }
 
-    image{
+    img{
         float: left;
-        margin: 0 1.5%;
-        width: 15%;
+        /* margin: 0 1.5%; */
+        width: 45%;
+        height: 25%
     }
+    
+    img{
+        /* float: left; */
+        height: 20%;
+        width: 25%;
+        /* height: 130px;
+        width: 190px; */
+    }
+
+
+    .clearfix {
+        overflow: auto;
+    }
+
+    .container {
+        padding: 5%;
+        float: right;
+    }
+    .containerList {
+        float: left;
+    }
+
+    background-image: url("moonsAligned.jpeg");
 
     /* h1,h2,h3{line-height:1.2} */
