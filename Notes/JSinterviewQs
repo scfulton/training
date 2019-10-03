@@ -1,0 +1,76 @@
+-How is JavsScript related to Java?
+
+Java and JS are namely related due to the time both were gaining popularity.  LiveScript was framed in 1995,
+which was the same time that java was becoming very popular. 
+Also, they have similar expression syntax and basic control flow structure.
+
+-Describe JS, what sort of language is it?
+
+Cross-platform OO scripting language.  Client and server side functionallity.
+Interpretive language, not compiled, but runtime interpretation.  
+
+-What is hoisting in JS?
+
+Allows for use of declared memory space before initialization (physically)
+in code.  No need to declare before/above use.  
+Hoists declaration, not initializations. 
+
+Ex:
+var add;
+add(1,2)
+add = function
+
+-How do you create new scopes in JS?
+
+Parent/ Child scopes are created by nesting functions, control flow
+(loops), and {}.  These will create local scopes.  Global scope is 
+default what entering a script, outside of any block.
+*var: a variable is either globally scoped, or locally scoped to the function in which it is defined.
+    lexical scope will hoist to top of function
+*let & const: are scoped within the block which they are defined
+    hoists to top of loops block
+
+
+-When would you use bind and what does it do?
+
+When trying to change the context of objects in a function, this is used.
+But, binding allows the this to be provided autmatically for function calls.
+
+cat and dog objs with bark and meow methods.
+cat.meow.bind(dog) // will let dog meow.
+
+-Discuss inheritance in JS.
+Not classical style: child from parent, it used prototypal (Behavior delegation pattern)
+whish created links from 2 objs up to one linked type.
+
+Composition or Mixins
+
+JS utilizes a prototypal compositional method for linking methods and traits.
+They have to be written into a prototype funciton that will link those methods/traits.  
+
+SeaPlane.prototype = ({}, Airplane.prototype, Boat.prptotype)
+
+-What is "closure" in JS? Provide 1 or 2 examples.
+Allows child scope to utilize parent scope, not other way around.
+foo1 (){
+    var x = "yay";
+    foo2 () {
+        console.log(x); //$ yay
+        x = "boo";
+    }
+    console.log(x);     //$ yay
+}
+
+
+
+-What is a polyfill?  Write a polyfill for "map" using basic language features.
+Allows browser to inmplement non-standard (maybe old) features in a standard manner.
+Like cross broswer compatability.
+
+
+-Undefined should be left assigned by the system... if needed, use null.
+-Map is an efficient orderered key value pairs.
+-Functions are special objects that can be invoked.
+
+dot notation is sugar for named index access....
+obj.add == obj["add]
