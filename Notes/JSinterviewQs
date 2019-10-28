@@ -1,4 +1,4 @@
--How is JavsScript related to Java?
+-How is JavaScript related to Java?
 
 Java and JS are namely related due to the time both were gaining popularity.  LiveScript was framed in 1995,
 which was the same time that java was becoming very popular. 
@@ -6,7 +6,7 @@ Also, they have similar expression syntax and basic control flow structure.
 
 -Describe JS, what sort of language is it?
 
-Cross-platform OO scripting language.  Client and server side functionallity.
+Cross-platform OO scripting language.  Client and server side functionality.
 Interpretive language, not compiled, but runtime interpretation.  
 
 -What is hoisting in JS?
@@ -34,21 +34,21 @@ default what entering a script, outside of any block.
 -When would you use bind and what does it do?
 
 When trying to change the context of objects in a function, this is used.
-But, binding allows the this to be provided autmatically for function calls.
+But, binding allows the this to be provided automatically for function calls.
 
 cat and dog objs with bark and meow methods.
 cat.meow.bind(dog) // will let dog meow.
 
 -Discuss inheritance in JS.
 Not classical style: child from parent, it used prototypal (Behavior delegation pattern)
-whish created links from 2 objs up to one linked type.
+which created links from 2 objs up to one linked type.
 
 Composition or Mixins
 
 JS utilizes a prototypal compositional method for linking methods and traits.
-They have to be written into a prototype funciton that will link those methods/traits.  
+They have to be written into a prototype function that will link those methods/traits.  
 
-SeaPlane.prototype = ({}, Airplane.prototype, Boat.prptotype)
+SeaPlane.prototype = ({}, Airplane.prototype, Boat.prototype)
 
 -What is "closure" in JS? Provide 1 or 2 examples.
 Allows child scope to utilize parent scope, not other way around.
@@ -64,13 +64,298 @@ foo1 (){
 
 
 -What is a polyfill?  Write a polyfill for "map" using basic language features.
-Allows browser to inmplement non-standard (maybe old) features in a standard manner.
-Like cross broswer compatability.
+Allows browser to implement non-standard (maybe old) features in a standard manner.
+Like cross browser compatibility.
 
 
 -Undefined should be left assigned by the system... if needed, use null.
--Map is an efficient orderered key value pairs.
+-Map is an efficient ordered key value pairs.
 -Functions are special objects that can be invoked.
 
 dot notation is sugar for named index access....
-obj.add == obj["add]
+obj.add == obj["add"]
+
+wcag - look for contrast compatibility
+------------------------------------------------------
+Mon Oct 7
+
+JS collections:
+    Array - access with int
+    objects - access with string (not ordered)
+    map - ordered hash map
+
+Firefox Developer's edition
+Do all work in private tab with extensions off
+Right click refresh with dev tools open have hard refresh and clear cache
+
+const is const assignment not un-mutable.  <--XXXXXX Don't think this
+
+class Board extends Array{
+    constructor(...args){
+        super(args);
+    }
+    //static place(token) makes class method instead of instance method
+    place(token, location){
+        this[location] = token;
+        // can return unidentified, null, or this
+
+    }
+}
+
+
+// const is const assignment not un-mutable.
+
+
+unityjs had a canvas, uses GPU
+web component
+
+--------------------------------------------
+Tue Oct 8
+
+Node takes v8 (chrome JS compiler) and makes it a runtime env
+
+asynchronicity-
+non blocking single threaded language
+
+Eventloop:
+Push callback to webAPI then push to event loop(call back queue)
+After stack is clear then the Eventloop(call back queue) can add callback to stack.
+
+JQuery-
+fluid API == chainable
+a lot of manipulations very fast
+chrome and firefox are "evergreen"  self updating and standard
+
+EX)
+$('.article')
+^   ^selector expression
+JQuery constructor
+returns one or more jquery wrapped dom nodes
+
+Flux manages state
+sharing state causes bug
+
+jquery alters the DOM, react alters the vDOM, when you use VDOM, we can no longer alter the DOM
+so no jquery when we use react, we must use vanilla js.
+
+-----------------------------------------------
+Wed Oct 9
+
+async == knowing func will run, but not when.
+
+(HTTP fetch) evergreen standard now
+Fetch():
+WindowOrWorkerGlobalScope.fetch()
+CORS and CSP
+
+resource == concept for a document, high level representation of document
+rest = representational state transfer (Roy Fielding phd dissertation)
+
+Express is a library for web applications in NODE
+
+
+    server              res     "resource"        Modified copy              back-end: API
+                ^       |        |                ^
+www HTTP---------------------------------------------------
+                |       v        v                |
+    client:     req              Resource.copy                               front-end: App
+
+    90% is 1st req then res
+    10% is flipped: real time
+
+HTTP Verbs:
+-----------------
+GET:    
+POST:
+HEAD:
+
+most common headers: content-type and accept
+
+RESTful routes >> RESTful resources:
+API endpoints
+Naming Conventions:
+Description     | HTTP Verb     |  
+member            GET             /resources/:id        GET a single resource >> sometimes called show
+collection        GET             /resources/           GET coll of resources>> sometimes called index
+create            POST            /resources/           POST a single resource
+update            PATCH or PUT    /resources/:id        PATCH/PUT to a single resource
+                  -patch is to modify fields or mult fields: SQL update  : not change the id of resource
+                  -put gets a copy of resource(s), all to do work or none of it >>upsert: change id of resource
+destroy           DELETE          /resources/:id        destroy single resource
+                  HEAD            /resource             CORS and CSP metadata
+new               GET             member
+edit              GET             member
+
+
+ServiceMesh: network of functions
+serverless architecture - 
+
+promise.all returns after all are done.
+
+-------------------------------------------------------------
+Mon Oct 14
+
+"Design thinking"  relates to customer centric development
+
+Assignment:  Account management system
+Library module (at least 2) 3 designs, whiteboard, OO and FS.  Made for developers (DX == developer experience)
+
+What does it do/ not do; what is it's behavior. (What is the API)
+
+What does a user management system do:
+access 
+
+REST is a server client relationship.  No need for web or http to have a rest
+cloud computing is web api gateway, and it's job is to authenticate you
+
+Systems or infrastructure architecture != solutions architecture
+
+
+new folder and git commit 
+npm install expression
+require http module then use .Server class to construct a new one
+
+-must create service that responds to HTTP POST requests using either node or express.
+-response with a random quote from a 10 quote "database" ("measure randomness")
+OR
+-Implement a mock of the happy eyes algorithm, benchmark (use package freely) and report results
+
+
+every tub needs to sit on its own bottom
+
+
+---------------------------------------
+Mon Oct 21
+
+Services   - provides client application with data or does work
+Model      - entity that sufficiently describes an objects
+Controller - wears multiple hats, but how model and view interact.
+View       - shown to user, a projection
+Routing    - translates a request stream to a function call
+Middleware - function(s) between the request and application code.  Manipulate or make decisions
+
+services are resources in a monolithic architecture.
+
+MW - router - orm - db
+SEE PICTURE OF EXPRESS architecture
+
+SQL/ relational persistent storage separates data from hows it's used or stored?
+-Event Store is a persistent data store (append only)
+-RDB == collection on sets and relationships between those sets
+-rows == records == instances
+-column == attribute == features
+-strong keys == unique by them selves, weak == need to be combined with another to make strong
+-query = issue to DB and resulting view
+-view is a persistent query
+
+DML
+create 
+alter 
+drop
+
+DDL
+select
+update
+insert
+delete
+
+--------------------------------------------
+Tue 22 Oct 
+
+Reactive or data flow programming means that when dependant data changes, side effects are recalculated
+JOINS-
+
+INNER - returns rows when there is a match in  both tables
+LEFT  - returns all rows from the left table and null for orphans on Right
+RIGHT - returns all rows from the right table and nulls for orphans on left
+FULL  - returns rows where there is a match in one of the tables
+SELF  - used to join a table to itself as if the table were two tables, temporarily renaming at least one table in the SQL statement.
+CARTESIAN - returns the Cartesian product of the sets of records
+
+---------------------------------------------------
+Thur 24 Oct
+"medium" measured micro bench mark.  methods for measuring was interesting.
+Data Down Actions Up
+or 
+Lowest Common Ancestor
+
+REACT
+Class component vs Function component
+-One has life cycle events
+CLASS HAS STATE, 
+D-fault functional components , but when need state use class component
+
+http client examples:
+---------------------
+---
+makes a request with one of these methods, along with a URL and a payload 
+(like a form or query string request) which communicate to the server what action they want performed
+----
+fetch
+request
+axios
+ajax
+NodeHttpClient
+
+Client application: 
+-------------------
+---
+UI
+---
+REACT
+page flow
+routing
+User experience
+
+   v-----is where i want to use a fake server, semi meaningful responses
+   v
+http client  -- client server
+    |
+    |  <---these links are when i want real responses
+    |
+api server
+    |
+    |
+    | 
+   DB    
+
+   CORS - CROSS ORIGIN RESOURCE SECURITY
+   CSP - CONTENT SECURITY POLICY
+
+
+Architectural seams == barriers btwn service layers
+client service -- api service -- DB service
+
+anther definition to fullstack:
+Client server to client to api server to DB
+
+
+CLIENT SERVER approach
+
+---------------------------------------------------
+Mon Oct 28
+
+SCRUM:
+------
+
+JSX
+state -Definition of State: Values that are tied to the level of 
+    scope that they are initialized in, and can only be accessed 
+    out of scope by passing down references through props.
+component
+props
+lifecycle events 
+lifting state up
+rendering
+
+
+class components have access to lifeCycle hooks.
+-component   didMount
+             didUpdate
+             willUnmount
+
+             didMount event will fire didMount method when component renders
+
+Very important to LCA because all children will re-render when state changes.
+
+

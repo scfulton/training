@@ -1,0 +1,81 @@
+react core team
+react native team
+utilize twitter
+People:
+Wes Bos
+Ryan Florence
+
+Fundamentals:
+React JS Docs
+Library Not a Framework
+
+React JS == library to build UIs
+
+React JS != NAti ve react
+
+JSX template == language
+-HTML and JS
+-Not required for React
+
+Element is a container on a page
+Container is a container for elements
+-has properties
+
+Props are how you communicate to components -> one way, can't pass propr up
+-Extra library PopTypes - if going to pass a name, shouldn't be an array
+
+State and Life cycle - 
+State == properties of an obj/component that can change and triggers re-renders, talk between components
+Props == how we share data down
+
+web components : Sales Force
+
+REACT
+Class component vs Function component
+-One has life cycle events
+CLASS HAS STATE, 
+D-fault functional components , but when need state use class component
+
+    allegator.io react patters and best practices
+
+
+JSX is a structured string
+-domain specific language DSL
+
+
+ReactCreateComponent() method that is HUGE for React
+JSX is our serialzaton format for vdom tree
+declaratively defining a tree of components
+
+
+React createElement(
+    type = <ToDoList>,
+    props = none,
+    children = <ToDo>
+React createElement(
+    type = <ToDo>,
+    props = Watch Batman (From 80s),
+    children = none
+)
+
+
+
+React.createElement(
+    TodoList,
+    null,
+    [React,create.Element(
+        ToDo,
+        null,
+        'WatchBatman'),
+
+    ])
+)
+
+Component == cohesive self contained isolated part of an application.  Typically, 
+---------    used in UI dev.  But also applies to to back end arch.
+
+    2 types: 
+    --------
+    destructive - big screen break down (top down)
+    constructive - small parts (atoms) bottom up
+

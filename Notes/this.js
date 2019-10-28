@@ -29,3 +29,6 @@ const cat = {
 }
 const n = cat.meow.bind(dog);
 console.log( n() );
+
+
+function test(n) { for (i = n; i>0; i--){Game.cookies++} }

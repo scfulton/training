@@ -1,0 +1,110 @@
+.outerBox {
+  width: 30%;
+  height: 30%;
+  border: 0.5px, solid gray;
+  /* margin: 10; */
+}
+.oBox {
+  background-color: lightgrey;
+  width: 30rem;
+  height: 25rem;
+  border: 0.15em solid gray;
+  /* padding: 0.1em; */
+  /* margin: 0.5em; */
+}
+.infoBox {
+    text-align: center;
+
+}
+.reset{
+    text-align: center;
+    float: bottom;
+}
+
+.wrapper {
+  /* display: inline-grid; */
+  display: grid;
+  /* grid-template-columns: (40px 40px 40px); */
+  /* grid-template-columns: repeat(3, 7em); */
+  /* repeats the dimensions (3 times, 1frame) equiv to 1/3rd of grid */
+  grid-template-columns: repeat(3, 100px);
+  /* grid-template-rows: (40px 40px 40px); */
+  /* grid-template-rows: reperat(3, 7em); */
+  /* auto mirrows column for rows */
+  grid-template-rows: repeat(3, 100px);
+  /* names fields in grid this will auto name lines NW-start...-end*/
+  grid-template-areas:
+    "NW N NE"
+    "W C E"
+    "SW S SE";
+  grid-gap: 0.1em 0.1em;
+  justify-content: center;
+  /* grid-row: minmax(7rem, 20rem); */
+  /* grid-column: minmax(7rem, 20rem); */
+  grid-auto-rows: minmax(1rem, 7rem);
+  grid-auto-columns: minmax(0.5rem, 0.5rem);
+  border: 0.15em solid gray;
+  background-color: lightgrey;
+}
+
+.location {
+  height: 100%;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  align-self: center;
+  size: fill;
+  transition: 0.4s;
+  
+  font-family: "Arial Black", Gadget, sans-serif, "Lucida Grande", sans-serif;
+  font-size: 4rem;
+
+}
+.active, .location:hover {
+    background-color: rgba(70, 181, 245, 0.459);
+}
+.NW {
+  border: 0.15em solid goldenrod;
+  grid-column: NW-start / NW-end;
+  grid-row: 1;
+}
+.N {
+  border: 0.15em solid goldenrod;
+  grid-column: N-start / N-end;
+  grid-row: 1;
+}
+.NE {
+  border: 0.15em solid goldenrod;
+  grid-column: NE-start / NE-end;
+  grid-row: 1;
+}
+.W {
+  border: 0.15em solid goldenrod;
+  grid-column: W-start / W-end;
+  grid-row: 2;
+}
+.C {
+  border: 0.15em solid goldenrod;
+  grid-column: C-start / C-end;
+  grid-row: 2;
+}
+.E {
+  border: 0.15em solid goldenrod;
+  grid-column: E-start / E-end;
+  grid-row: 2;
+}
+.SW {
+  border: 0.15em solid goldenrod;
+  grid-column: SW-start / SW-end;
+  grid-row: 3;
+}
+.S {
+  border: 0.15em solid goldenrod;
+  grid-column: S-start / S-end;
+  grid-row: 3;
+}
+.SE {
+  border: 0.15em solid goldenrod;
+  grid-column: SE-start / SE-end;
+  grid-row: 3;
+}
